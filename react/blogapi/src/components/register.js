@@ -63,7 +63,7 @@ export default function SignUp() {
 				password: formData.password,
 			})
 			.then((res) => {
-				navigate('/login');
+				navigate('/login/');
 				console.log(res);
 				console.log(res.data);
 			});

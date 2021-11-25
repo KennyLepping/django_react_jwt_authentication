@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'users',
+    'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
 ]
 
@@ -145,6 +146,18 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
+
+# CORS_ALLOW_HEADERS = (
+#     'Accept',
+#     'Accept-encoding',
+#     'Authorization',
+#     'Content-type',
+#     'Dnt',
+#     'Origin',
+#     'User-agent',
+#     'X-csrftoken',
+#     'X-requested-with',
+# )
 
 # Custom user model
 AUTH_USER_MODEL = "users.NewUser"

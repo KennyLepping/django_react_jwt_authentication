@@ -53,9 +53,10 @@ export default function SignIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-
+    
     axiosInstance
       .post(`token/`, {
+    //   .post(`token/obtain/`, {
         email: formData.email,
         password: formData.password,
       })
@@ -65,8 +66,8 @@ export default function SignIn() {
         axiosInstance.defaults.headers["Authorization"] =
           "JWT " + localStorage.getItem("access_token");
         navigate("/");
-        //console.log(res);
-        //console.log(res.data);
+        console.log(res);
+        console.log(res.data);
       });
   };
 
