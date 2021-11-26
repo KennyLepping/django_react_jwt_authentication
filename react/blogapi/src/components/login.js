@@ -13,6 +13,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import jwt_decode from "jwt-decode";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -68,6 +69,12 @@ export default function SignIn() {
         navigate("/");
         console.log(res);
         console.log(res.data);
+
+        let token = res.data.access
+        let decoded_token = jwt_decode(token)
+        // Passing customized obtain token serializer to get user attribute first_name
+        console.log(decoded_token.first_name)
+
       });
   };
 

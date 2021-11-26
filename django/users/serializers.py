@@ -4,6 +4,18 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from users.models import NewUser
 
 
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+
+    @classmethod
+    def get_token(cls, user):
+        token = super(MyTokenObtainPairSerializer, cls).get_token(user)
+
+        # Add custom claims
+        # These custom claims can be accessed in the frontend after decoding the JWT in the response
+        token['first_name'] = user.first_name
+        return token
+
+
 class CustomUserSerializer(serializers.ModelSerializer):
     """
     Currently unused in preference of the below.
